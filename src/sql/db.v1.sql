@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS TODO_events_app;
+
+CREATE DATABASE IF NOT EXISTS TODO_events_app;
+
+USE TODO_events_app;
+
+CREATE TABLE users(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user VARCHAR (50) NOT NULL,
+    first_name VARCHAR (100),
+    rol ENUM('ADMIN', 'USUARIO') NOT NULL DEFAULT 'USUARIO',
+    pass VARCHAR (255) NOT NULL
+);
+
+INSERT INTO users(user, first_name, pass, rol) VALUES ('IUSH','IUSH ADMIN', '$2a$08$LjwwQ5POn6Pu/evLnA4xeeLOGt5Ys1XmwjEEGwNgqH9OTP7rwd5f2', 'ADMIN');
