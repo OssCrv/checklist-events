@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head'); %>
+    <title>Checklist de eventos</title>
+</head>
+
+<body>
+
+  <%- include('./partials/header'); %>
+
+    <div class="row">
+      <% for(let dependency of dependencies) { %>
+        <a href="/dependencia/<%= dependency.id_dependency %>" class="col-lg-6 mb-4 btn">
+          <div class="card bg-light shadow">
+            <div class="card-header">
+              <h1 class="text-center">
+                <%= dependency.dependency_name %>
+              </h1>
+            </div>
+
+          </div>
+        </a>
+        <% } %>
+    </div>
+
+    <%- include('./partials/footer'); %>
+</body>
+
+</html>

@@ -62,5 +62,41 @@ module.exports = {
             })
     },
 
+    getByDependency: function (req, res) {
+        Categories.getByDependency(req.con, req.params.fk, (err, rows) => {
+            if (err) console.error(err)
+            let data = [];
+            let categories = rows;
+            rows.forEach(category => {
+                let aux = {}
+                aux.category = category
+                aux.innings = []
+                data.push(aux)
+            })
+
+
+            Innings.getActivesOfDay(req.con, (err, rows) => {
+                if (err) console.error(err)
+
+
+                rows.forEach(inning => {
+                    data.forEach(object => {
+                        if (object.category.id_category == inning.fk_category) {
+                            object.innings.push(inning)
+                        }
+                    })
+                })
+
+                res.render("indexCategories", {
+                    inningsByCategory: data,
+                    fkDependency: req.params.fk,
+                    activeSession: {
+                        loggedIn: req.session.loggedIn,
+                        name: req.session.name
+                    }
+                })
+            })
+        })
+    }
    
 }

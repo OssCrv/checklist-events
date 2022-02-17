@@ -30,10 +30,10 @@ app.use('/resources', express.static(path.join(__dirname, '../public')));
 
 
 app.use(session({
-    secret: 'secret',
+    secret: '1234567890QWERT',
     resave: true,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: { maxAge: 24 * 60 * 60 * 1000, path: '/' }
 }));
 
 app.use('/', indexRouter);

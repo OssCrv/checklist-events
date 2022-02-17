@@ -2,8 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 const dependencyController = require('../controller/dependencyController')
+const checklistController = require('../controller/checklistController')
 const eventController = require('../controller/eventController')
 const authController = require('../controller/authController')
+
+router.get('/', dependencyController.index);
+
+router.get('/dependencia/:id', checklistController.index)
+
 
 router.get('/login', authController.login);
 router.post('/auth', authController.auth);

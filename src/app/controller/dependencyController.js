@@ -3,6 +3,7 @@ const Dependencies = require("../model/dependencyModel")
 module.exports = {
 
     index: function (req, res) {
+        console.log(req.session)
         Dependencies.get(req.con,
             function (err, rows) {
                 if (err) console.error(err)

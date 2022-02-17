@@ -17,6 +17,7 @@ module.exports = {
                 if (result.length === 0 || !(bcryptjs.compare(pass, result[0].pass))) {
                     res.render('login');
                 } else {
+                    console.log(result);
                     req.session.loggedIn = true;
                     req.session.name = result[0].first_name;
                     res.redirect('/');
@@ -26,7 +27,8 @@ module.exports = {
 
     logout: function (req, res) {
         req.session.destroy(() => {
-            res.redirect("/");
+            console.log("Session destroyed");
+            res.redirect("/login");
           })
     }
 

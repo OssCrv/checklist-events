@@ -38,3 +38,7 @@ INSERT INTO events(event_name, fk_dependency) VALUES ("Evento 1", 2);
 
 
 INSERT INTO users(user, first_name, pass, rol) VALUES ('IUSH','IUSH ADMIN', '$2a$08$LjwwQ5POn6Pu/evLnA4xeeLOGt5Ys1XmwjEEGwNgqH9OTP7rwd5f2', 'ADMIN');
+
+
+
+
