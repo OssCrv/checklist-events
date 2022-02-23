@@ -33,6 +33,11 @@ module.exports = {
     },
 
     getByDependency: function (con, fk, callback) {
-        con.query(`SELECT * FROM events WHERE fk_dependency=${fk};`, callback)
+        console.log("getByDependency")
+        con.query(` 
+        SELECT * 
+        FROM events 
+        JOIN dependencies ON events.fk_dependency=dependencies.id_dependency 
+        WHERE fk_dependency=${fk};`, callback)
     }
 }

@@ -12,8 +12,8 @@
 
   <%- include('./partials/header'); %>
   <div class="row">
-    <% for(let dependency of [1,2,3,4,5,6,7,8]) { %>
-      <%- include('./partials/checkListByEvent', {event: "Sizas", dependency: "Ajá"}); %>
+    <% for(let event of events) { %>
+      <%- include('./partials/checkListByEvent', {event: event}); %>
       
       <% } %>
     </div>

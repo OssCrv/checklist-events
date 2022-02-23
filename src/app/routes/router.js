@@ -11,6 +11,9 @@ router.get('/', dependencyController.index);
 router.get('/dependencia/:id', checklistController.index)
 
 
+router.post('/checklist/add/:fk', checklistController.addChecklist)
+
+
 router.get('/login', authController.login);
 router.post('/auth', authController.auth);
 router.get('/logout', authController.logout)
